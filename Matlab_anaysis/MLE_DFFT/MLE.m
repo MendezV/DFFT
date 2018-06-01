@@ -83,7 +83,7 @@ grad=logligrad(params ,  MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv); %%gradien
 %%
 
 %%now we use nonlinear conjugate gradients to fin the MLE
-tolerance=10E-17; %%when the gradient's magnitude is smaller than this, the search stops
+tolerance=10E-7; %%when the gradient's magnitude is smaller than this, the search stops
 counter=0;
 tic
 while sqrt((params-pastparams)'*(params-pastparams))/(MaxPop+1+Nbins)>tolerance %algorithm stops when parameters change on average to the 5th decimal

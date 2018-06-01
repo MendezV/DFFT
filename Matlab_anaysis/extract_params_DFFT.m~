@@ -41,22 +41,17 @@ gauge=0;
 
 %%
 %plot params
-if plots=='True'
-    MaxPop=max(max(counts)); %maximum observed packing in the system
-    Nbins=size(counts,1); %total number of bins
+if plots='True'
+MaxPop=max(max(counts)); %maximum observed packing in the system
+Nbins=size(counts,1); %total number of bins
 
 					  
-    N=((1:(MaxPop+1))-1)'; %vector with possible occupation numbers in the system
-    B=((1:(Nbins))-1)'; %vector with bin labels (by integers)
+N=((1:(MaxPop+1))-1)'; %vector with possible occupation numbers in the system
+B=((1:(Nbins))-1)'; %vector with bin labels (by integers)
 
 
-    ax1 = subplot(2,1,1);
-    errorbar(N,fmle,fmleError)
-    xlabel('Occupation # (N)')
-    ylabel('Frustration f(N)')
+ax1 = subplot(2,1,1);
+errorbar(N,fmle,fmleError)
 
-    ax2 = subplot(2,1,2);
-    errorbar(B,Vmle,VmleError)
-    xlabel('Bin # (B)')
-    ylabel('Vexation V(B)')
-end
+ax2 = subplot(2,1,2);
+errorbar(B,Vmle,VmleError)
