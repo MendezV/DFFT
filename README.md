@@ -22,11 +22,13 @@ The code in this repository can be used to analyze the collective motion of stat
 
 # Repo Contents
 
-- [R](./R): `R` package code.
-- [docs](./docs): package documentation.
-- [man](./man): package manual for help in R session.
-- [tests](./tests): `R` unit tests written using the `testthat` package.
-- [vignettes](./vignettes): `R` vignettes for R session html help pages.
+- [Matlab_analysis](./Matlab_analysis): `Matlab` package code.
+	-[Predictions](./Matlab_analysis/Predictions):ssf
+	-[MLE_DFFT](./Matlab_analysis/MLE_DFFT)
+	-[MLE_Poiss](./Matlab_analysis/MLE_Poiss)
+- [Trial_data](./Trial_data): package documentation.
+
+
 
 
 # System Requirements
