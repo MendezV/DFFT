@@ -12,6 +12,8 @@ function conjugdir=getconjugdir(params,pastparams,pastconjugdir, MaxPop,Nbins,Tf
 %%-MaxPop:  maximum observed packing in the system
 %%-Nbins: total number of bins
 %%-Tframes: number of frames
+%%-hist: Nbins x (MaxPop+1) matrix in which each row corresponds to the
+%%histrogram of counts within each bin
 %%-N:  vector of size MaxPop+1 with ordered integers ranging from 0 to MaxPop 
 %%-Nfac: vector of size MaxPop+1 with the factorial of ordered integers ranging from 0 to MaxPop 
 %%-NexpAv: vector of size Nbins with the average number of individuals within

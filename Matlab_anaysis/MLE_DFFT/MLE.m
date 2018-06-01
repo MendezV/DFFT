@@ -23,16 +23,18 @@ function [fmle,Vmle,CovMatmle,fmleError,VmleError]=MLE(rootparams,alpharoot,coun
 %%limit for the distribution of estimators
 
 %%OUT
-%%-f: a MaxPop+1(MaxPop is the maximum number of flies that were observed inside a bin) sized vector that corresponds to the frustration that came out of the MLE including the gauge fixed values (if gauge!=0 the average potential is set to zero and the gauge is adjusted for f(1) with appropiate error propagation)
-%%-V: a Nbins(number of bins in the system) sized vector that corresponds
+%%-fmle: a MaxPop+1(MaxPop is the maximum number of flies that were observed inside a bin) sized vector that corresponds to the frustration that came out of the MLE including the gauge fixed values (if gauge!=0 the average potential is set to zero and the gauge is adjusted for f(1) with appropiate error propagation)
+%%-Vmle: a Nbins(number of bins in the system) sized vector that corresponds
 %%to the vexation that came out of the MLE (if gauge!=0 the average potential is set to zero)
-%%-stderrors: a (MaxPop-1+Nbins)x1 vector that corresponds to the diagonal of the covariance matrix, corresponding to the
-%%variances for each of the parameters that we are estimating without the
-%%gauge fixed values, which have no uncertainty
-%%-CovMat: a (MaxPop-1+Nbins) square, positive, symmetric, invertible
+%%-fmleError: a (MaxPop-1)x1 vector that corresponds to the diagonal of the covariance matrix, that ammounts to the
+%%variances for each of the parameters in the ff sector of the covariance matrix, with zeros for the
+%%gauge fixed values
+%%-VmleError: a (Nbins)x1 vector that corresponds to the diagonal of the covariance matrix, that ammounts to the
+%%variances for each of the parameters in the VV sector of the covariance matrix
+%%-CovMatmle(if gauge=0): a (MaxPop-1+Nbins) square, positive, symmetric, invertible
 %%Matrix that corresponds to the covariance matrix of the asymptotic
 %%gaussian distribution for the ML estimators. (if there was no gauge fix)
-%%-CovMat:a (MaxPop+Nbins) square, positive, symmetric, invertible
+%%-CovMatmle(if gauge=1):a (MaxPop+Nbins) square, positive, symmetric, invertible
 %%Matrix that corresponds to the covariance matrix of the asymptotic
 %%gaussian distribution for the ML estimators after performing the gauge transformation
 %%which ammounts to performing a similarity transformation to the covriance matrix
