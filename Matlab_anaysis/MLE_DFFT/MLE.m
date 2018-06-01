@@ -83,7 +83,7 @@ while sqrt((params-pastparams)'*(params-pastparams))/(MaxPop+1+Nbins)>tolerance 
    conjugdir(1)=0; %%fixing the gauge to avoid singularity in the covariance matrix
    conjugdir(2)=0; %%fixing the gauge to avoid singularity in the covariance matrix
 		   
-	alpha=linemin(params,conjugdir,alpharoot,  MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv, grad); %%finding an adecuate step size
+   alpha=linemin(params,conjugdir,alpharoot,  MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv, grad); %%finding an adecuate step size
 		   
    pastparams=params; %%updating the previous argument of the loglikelihood
    pastparams(1)=0; %%fixing the gauge to avoid singularity in the covariance matrix
