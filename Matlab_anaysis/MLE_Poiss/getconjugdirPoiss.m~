@@ -21,8 +21,8 @@ function conjugdir=getconjugdirPoiss(params,pastparams,pastconjugdir, MaxPop, Nb
 %%-conjugdir: a vector of size Nbins  corresponding to the
 %%new search direction in the algorithm
 
-pastgrad=logligradPoiss(pastparams , MaxPop, Nbins, Tframes, hist, N, Nfac, NexpAv); %gradient in the last iteration
-grad=logligradPoiss(params , MaxPop, Nbins, Tframes, hist, N, Nfac, NexpAv); %gradient in this iteration
+pastgrad=logligradNaive(pastparams , MaxPop, Nbins, Tframes, hist, N, Nfac, NexpAv); %gradient in the last iteration
+grad=logligradPoi(params , MaxPop, Nbins, Tframes, hist, N, Nfac, NexpAv); %gradient in this iteration
 betaPR=grad'*(grad-pastgrad)/(pastgrad'*pastgrad); %Polak-Ribiere 
 beta=max([0,betaPR]); %%automatic reset for steepest decent
 %betaFR=grad'*grad/(pastgrad'*pastgrad); %Fletcher-Reeves

@@ -21,8 +21,8 @@ function grad=logligradPoiss(params , MaxPop, Nbins, Tframes, hist, N, Nfac, Nex
 V=params; %%extracting vexation
 
 %Vexation sector of the gradient
-z=sum(exp(-V*N')./Nfac,2); %%size Nbinsx1 normalization for probaility in our model
-NensAv=sum((ones(Nbins,1)*N').*exp(-V*N')./Nfac,2)./z; %%ensemble average of our model
+z=sum(exp(-V*N')./gamma(ones(Nbins,1)*(N+1)'),2); %%size Nbinsx1 normalization for probaility in our model
+NensAv=sum((ones(Nbins,1)*N').*exp(-V*N')./gamma(ones(Nbins,1)*(N+1)'),2)./z; %%ensemble average of our model
 Vgrad=Tframes*(NexpAv-NensAv); %V sector of the gradient is the difference between the observed average and the model average
 
 grad=Vgrad;
