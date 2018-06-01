@@ -1,4 +1,4 @@
-function grad=logligradNaive(params , MaxPop, Nbins, Tframes, hist)
+function grad=logligradPoiss(params , MaxPop, Nbins, Tframes, hist)
 
 %%IN
 %%-params: Nbins values for the vexation at each bin ) corresponds to the position for current

@@ -12,6 +12,12 @@ function alpha=linemin(params,conjugdir,alpharoot,  MaxPop,Nbins,Tframes, hist, 
 %%-MaxPop:  maximum observed packing in the system
 %%-Nbins: total number of bins
 %%-Tframes: number of frames
+%%-N:  vector of size MaxPop+1 with ordered integers ranging from 0 to MaxPop 
+%%-Nfac: vector of size MaxPop+1 with the factorial of ordered integers ranging from 0 to MaxPop 
+%%-NexpAv: vector of size Nbins with the average number of individuals within
+%%each bin
+%%-grad:  vector of size MaxPop+1 + Nbins that corresponds to the gradient of the likelihood function
+
 
 %%performs a backtracking search to determine a sufficiently good step size
 %%to guaratee that we are indeed minimizing the function. Sufficiently good

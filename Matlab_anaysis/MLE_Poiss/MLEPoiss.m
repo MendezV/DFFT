@@ -1,4 +1,4 @@
-function [VNaive,CovMatNaive,stderrorsNaive]=MLENaive(rootparams,alpharoot,counts,tau)
+function [VNaive,CovMatNaive,stderrorsNaive]=MLEPoiss(rootparams,alpharoot,counts,tau)
 %%%%%%%%%%
 %%IN
 %%-rootparams: Nbins values for the vexation at each bin for the naive model, 

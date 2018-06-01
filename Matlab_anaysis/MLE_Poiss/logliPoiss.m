@@ -1,4 +1,4 @@
-function logp=logliNaive(params ,  MaxPop, Nbins, Tframes, hist)
+function logp=logliPoiss(params ,  MaxPop, Nbins, Tframes, hist)
 
 %%IN
 %%-params: Nbins values for the vexation at each bin ) corresponds to the position for current

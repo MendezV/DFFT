@@ -1,4 +1,4 @@
-function conjugdir=getconjugdirNaive(params,pastparams,pastconjugdir, MaxPop, Nbins, Tframes, hist)
+function conjugdir=getconjugdirPoiss(params,pastparams,pastconjugdir, MaxPop, Nbins, Tframes, hist)
 
 %%IN
 %%-params: Nbins values for the vexation at each bin ) corresponds to the position for current

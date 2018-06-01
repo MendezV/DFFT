@@ -12,12 +12,10 @@ function conjugdir=getconjugdir(params,pastparams,pastconjugdir, MaxPop,Nbins,Tf
 %%-MaxPop:  maximum observed packing in the system
 %%-Nbins: total number of bins
 %%-Tframes: number of frames
-%%-N:  vector of size MaxPop+1 with ordered integers ranging from 0 to MaxPop 
-%%-Nfac: vector of size MaxPop+1 with the factorial of ordered integers ranging from 0 to MaxPop 
-%%-NexpAv: vector of size Nbins with the average number of individuals within
-%%each bin
-%%-grad:  vector of size MaxPop+1 + Nbins that corresponds to the gradient of the likelihood function
-
+%%-MaxPop:  maximum observed packing in the system
+%%-Nbins: total number of bins
+%%-Tframes: number of frames
+%%-Tframes: number of frames
 
 %%Gets the search direction in the non-linear conjugate gradients minimization algorithm by implementing a preconditioner given by the
 %%Polak-Ribiere (Fletcher-Reeves,Hestenes-Stiefel,Dai?Yuan) formula with a modification to generate automatic resets to

@@ -1,4 +1,4 @@
-function alpha=lineminNaive(params,conjugdir,alpharoot, MaxPop, Nbins, Tframes, hist)
+function alpha=lineminPoiss(params,conjugdir,alpharoot, MaxPop, Nbins, Tframes, hist)
 
 %%IN
 %%-params: Nbins values for the vexation at each bin ) corresponds to the position for current

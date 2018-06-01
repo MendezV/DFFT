@@ -8,6 +8,11 @@ function logp=logli(params , MaxPop, Nbins, Tframes, hist, N, Nfac, NexpAv)
 %%-MaxPop:  maximum observed packing in the system
 %%-Nbins: total number of bins
 %%-Tframes: number of frames
+%%-N:  vector of size MaxPop+1 with ordered integers ranging from 0 to MaxPop 
+%%-Nfac: vector of size MaxPop+1 with the factorial of ordered integers ranging from 0 to MaxPop 
+%%-NexpAv: vector of size Nbins with the average number of individuals within
+%%each bin
+
 
 %%calculates the value of the likelihood function for a given set of
 %%parameters and data for our specific model

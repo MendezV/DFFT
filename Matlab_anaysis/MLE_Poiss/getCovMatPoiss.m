@@ -1,4 +1,4 @@
-function [stderrorsNaive,CovMatNaive]=getCovMatNaive(VNaive, MaxPop, Nbins, Tframes)
+function [stderrorsNaive,CovMatNaive]=getCovMatPoiss(VNaive, MaxPop, Nbins, Tframes)
 
 %%IN
 %%-VNaive: a Nbins(number of bins in the system) sized vector that
