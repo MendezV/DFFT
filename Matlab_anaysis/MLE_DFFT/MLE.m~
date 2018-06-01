@@ -1,11 +1,9 @@
-function [fmle,Vmle,CovMatmle,fmleError,VmleError]=MLE(root,alpharoot,counts,gauge,tau)
+function [fmle,Vmle,CovMatmle,fmleError,VmleError]=MLE(rootparams,alpharoot,counts,gauge,tau)
 %%%%%%%%%%
 %%IN
-%%-root: a vector of size MaxPop+1 + Nbins (MaxPop+1 values for the frustration,the number of flies 
+%%-rootparams: a vector of size MaxPop+1 + Nbins (MaxPop+1 values for the frustration,the number of flies 
 %%can go from zero to the maximum observed packing in all the bins. And Nbins values for the vexation at each bin )
-%%it corresponds to the root of the minimization algorithm, if equal to
-%%'random' the initial guess for the parameter vector has entries uniformly
-%%distributed between 0 and one
+%%it corresponds to the root of the minimization algorithm 
 %%-rootalpha: scalar that corresponds to the root that will be used in
 %%the linesearch algorithm that is implemented in the minimization,, must be positive, recomended is 0.001 
 %%-counts: a NbinsxTframes matrix with the number of flies observed in each
@@ -42,10 +40,13 @@ function [fmle,Vmle,CovMatmle,fmleError,VmleError]=MLE(root,alpharoot,counts,gau
 %%which ammounts to performing a similarity transformation to the covriance matrix
 %%also we append to the asymptotic covariance the error and covariances of the parameter f(1) that was previously fixed but now has error. (if there was a gauge fix)
 
-%%
-%initializing constant values
 more off;
-
+%%
+%setting up initial guess for the parameter vector
+if rootparams=='random'
+    
+end
+%%
 MaxPop=max(max(counts)); %maximum observed packing in the system
 Nbins=size(counts,1); %total number of bins
 Tframes=size(counts,2)/tau; %%number of independent frames (in reality should be downsapled untli tau is equal to 1)
@@ -60,16 +61,11 @@ hist=delta';
 N=((1:(MaxPop+1))-1)'; %vector with possible occupation numbers in the system
 NexpAv=hist*N; %experimental average number of flies at each bin
 Nfac=gamma(ones(Nbins,1)*(N+1)');
+%%
 
-%%
-%setting up initial guess for the parameter vector
-if root=='random'
-   rootparams=rand([MaxPop+1+Nbins,1]);
-end
-%%
 %%first iteration is steepest descent with a variable step size 
 presgrad=logligrad(rootparams ,  MaxPop , Nbins, Tframes, hist, N, Nfac, NexpAv); %%steepest descent
-alpha=linemin(rootparams,presgrad, alpharoot,  MaxPop, Nbins,Tframes,hist, N, Nfac, NexpAv,presgrad); %%finding an adecuate step size
+alpha=linemin(rootparams,-presgrad, alpharoot,  MaxPop, Nbins,Tframes,hist, N, Nfac, NexpAv,presgrad); %%finding an adecuate step size
 params=rootparams-alpha*presgrad; %%steepest descent update
 params(1)=0; %%fixing the gauge to avoid singularity in the covariance matrix
 params(2)=0; %%fixing the gauge to avoid singularity in the covariance matrix
