@@ -3,7 +3,7 @@ function conjugdir=getconjugdir(params,pastparams,pastconjugdir, MaxPop,Nbins,Tf
 %%IN
 %%-params: a vector of size MaxPop+1 + Nbins (MaxPop+1 values for the frustration,the number of flies 
 %%can go from zero to the maximum observed packing in all the bins. And
-%%Nbins values for the vexation at each bin ) corresponds to the position for current
+%%Nbins values for the vexation at each bin ). This vector corresponds to the position for current
 %%iteration of the non-linear conjugate gradients minimization algorithm
 %%-pastparams corresponds to the position for past
 %%iteration of the non-linear conjugate gradients minimization algorithm

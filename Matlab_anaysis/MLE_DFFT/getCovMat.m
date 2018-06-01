@@ -7,8 +7,8 @@ function [stderrors,CovMat]=getCovMat(f,V, MaxPop,Nbins,Tframes,gauge)
 %%-Nbins: total number of bins
 %%-Tframes: number of frames
 %%-gauge: numerical value, if equal to zero a gauge transformation was
-%%performed to the parameters and we have to transform the covariance
-%%matrix accordingly
+%%performed to the parameters so that f(0)=f(1)=0. If equal to one, f(1) is no loger fixed
+%%and we have to transform the covariance matrix accordingly
 
 
 %%Calculates the asymptotic Covariance Matrix as the inverse of the fisher
@@ -18,10 +18,10 @@ function [stderrors,CovMat]=getCovMat(f,V, MaxPop,Nbins,Tframes,gauge)
 %%-stderrors: a (MaxPop-1+Nbins)x1 vector that corresponds to the diagonal of the covariance matrix, corresponding to the
 %%variances for each of the parameters that we are estimating without the
 %%gauge fixed values, which have no uncertainty
-%%-CovMat: a (MaxPop-1+Nbins) square, positive, symmetric, invertible
+%%-CovMat:(if gauge=0) a (MaxPop-1+Nbins) square, positive, symmetric, invertible
 %%Matrix that corresponds to the covariance matrix of the asymptotic
 %%gaussian distribution for the ML estimators. (if there was no gauge fix)
-%%-CovMat:a (MaxPop+Nbins) square, positive, symmetric, invertible
+%%-CovMat:(if gauge=1)a (MaxPop+Nbins) square, positive, symmetric, invertible
 %%Matrix that corresponds to the covariance matrix of the asymptotic
 %%gaussian distribution for the ML estimators after performing the gauge transformation
 %%which ammounts to performing a similarity transformation to the covriance matrix
