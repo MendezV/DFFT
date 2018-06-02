@@ -233,7 +233,7 @@ The output to MATLAB workspace should be :
 
 Additionally, the following plot of VPoiss with its respective error bars shoud appear
 
-![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO.png)
+![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO2.png)
 
 This operation typically lasts less than one second. Moreover, the following output should appear in the command line:
 ```
@@ -241,20 +241,20 @@ Correlation time (in frames)...
 
 tau =
 
-6.5316
+4.4359
 ```
 Which tells time needed to decorrelate the system in units of frames. Also, 
 ```
-Elapsed time is 0.452752 seconds.
+Elapsed time is 0.143906 seconds.
 ```
 Tells the time in which  the non-linear conjugate gradients algorithm converged. This time changes with each call of the function because random initial conditions for the search where set by default. However, this is time is generally lower than a second for the data in this repository. Note that this time depends monotonically on the ammount of bins in the system. Finally, the line:
 
 ```
 counter =
 
-1920
+1081
 ```
-tells the number of iterations until the non-linear conjugate gradients algorithm converges. For the data in this repository, the number is typically around 2000-3000 depending on the random initial condition. 
+tells the number of iterations until the non-linear conjugate gradients algorithm converges. For the data in this repository, the number is typically around 800-1500 depending on the random initial condition. 
 
 ## Predictions Demo
 
