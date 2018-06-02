@@ -173,7 +173,7 @@ The `DFFT_MLE` demo can be run as follows:
 ```
 [fmle,Vmle,CovMatmle,fmleError,VmleError]=extract_params_DFFT('DFFT/Trial_Data/occ_f.mat','True');
 ```
-The data in  ```occ_f.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a crowd of 135 flies inside a circular chamber with 50 bins. The maximum occupation observed in this data is 7 flies in a bin. The total number of frames was 533.  As such, occ_f contains a 533x50 matrix. 
+The data in  ```occ_f.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a crowd of 135 flies inside a circular chamber with 50 bins. The maximum occupation observed in this data is 7 flies in a bin. The total number of frames was 533.  As such, ```occ_f.mat```  contains a 533x50 matrix. 
 
 The output to MATLAB workspace should be :
 
@@ -221,7 +221,7 @@ The `Poiss_MLE` demo can be run as follows:
 ```
 [VPoiss,CovMatPoiss,VPoissError]=extract_params_Poiss('DFFT/Trial_Data/occ_V.mat','True');
 ```
-The data in  ```occ_V.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a single flies inside a square chamber with 49 bins. The total number of frames was 6384.  As such, occ_f contains a 6384x49 matrix. 
+The data in  ```occ_V.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a single flies inside a square chamber with 49 bins. The total number of frames was 6384.  As such, ```occ_V.mat``` contains a 6384x49 matrix. 
 
 The output to MATLAB workspace should be :
 
@@ -258,24 +258,50 @@ tells the number of iterations until the non-linear conjugate gradients algorith
 
 ## Predictions Demo
 
-The `Predictions` demo can be run as follows:
+To test the predictions demo, first run the DFFT_MLE demo with
 
 ```
-require(mgc)
-set.seed(12345)
-mgc.sample(mgc::test_xunif, mgc::test_ylin)$statMGC  # test with a linear relationship between x and y
+[fmle,Vmle,CovMatmle,fmleError,VmleError]=extract_params_DFFT('DFFT/Trial_Data/occ_exp.mat','True');
 ```
+The data in  ```occ_exp.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a single flies inside a square chamber with 49 bins. The total number of frames was 15960.  As such, ```occ_exp``` contains a 15960x49 matrix. 
 
-the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding 
+The output to MATLAB workspace should be :
 
+-```fmle```: a vector with 8 entries that corresponds to the frustration that came out of the MLE including the gauge fixed values (if gauge!=0 the average potential is set to zero and the gauge is adjusted for f(1) with appropiate error propagation)
 
-with the following statistic:
+-```Vmle```: a  vector with 50 entries that corresponds to the vexation that came out of the MLE (if gauge!=0 the average potential is set to zero)
+
+-```fmleError```: a vector with 8 entries that corresponds to the diagonal of the covariance matrix, that ammounts to the variances for each of the parameters in the f-f sector of the covariance matrix, with zeros for the gauge fixed values
+
+-```VmleError```: a  vector with 50 entries that corresponds to the diagonal of the covariance matrix, that ammounts to the variances for each of the parameters in the V-V sector of the covariance matrix
+
+-```CovMatmle ```(if gauge=0): a 56x56 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators. (if there was no gauge fix)
+
+-```CovMatmle``` (if gauge=1): a 57x57 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators after performing the gauge transformation which ammounts to performing a similarity transformation to the covriance matrix also we append to the asymptotic covariance the error and covariances of the parameter f(1) that was previously fixed but now has error. (if there was a gauge fix)
+
+the ```gauge``` parameter is set within the ```extract_params_DFFT.mat``` script, and the default setting is ```gauge=0```.  Additionally, the following plot of fmle and Vmle with their respective error bars shoud appear
+
+![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO3.png)
+
+This operation typically lasts less than one second. Moreover, the following output should appear in the command line:
+```
+Correlation time (in frames)...
+
+tau =
+
+42.5114
 
 ```
-0.7337225
+Which tells time needed to decorrelate the system in units of frames. Also, 
 ```
+Elapsed time is 0.185710 seconds.
+```
+Tells the time in which  the non-linear conjugate gradients algorithm converged. This time changes with each call of the function because random initial conditions for the search where set by default. However, this is time is generally lower than a second for the data in this repository. Note that this time depends monotonically on the ammount of bins in the system. Finally, the line:
 
-viewing the corr map above we see that the relationship betweel Sepal and Petal Length is somewhat linear.
+```
+counter =
 
-
+687
+```
+tells the number of iterations until the non-linear conjugate gradients algorithm converges. For the data in this repository, the number is typically around 500-1000 depending on the random initial condition. 
 
