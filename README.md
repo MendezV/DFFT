@@ -24,9 +24,13 @@ Also, included in this repository is the code to make predictions of crowd densi
 # Repo Contents
 
 - [Matlab_analysis](./Matlab_analysis): `Matlab` code.
+
 	-[Predictions](./Matlab_analysis/Predictions):ssf
+	
 	-[MLE_DFFT](./Matlab_analysis/MLE_DFFT)
+	
 	-[MLE_Poiss](./Matlab_analysis/MLE_Poiss)
+	
 - [Trial_data](./Trial_data): Test data
 
 
