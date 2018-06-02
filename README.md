@@ -8,16 +8,11 @@
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
 - [Demo](#demo)
-+ [MLE](#mle-demo)
 - [Instructions for Use](#instructions-for-use)
-+ [MLE](#mle-use)
-- [License](./LICENSE)
-- [Issues](https://github.com/neurodata/mgc/issues)
-- [Pseudocode](#pseudocode)
-- [Citation](#citation)
+
 # Overview
 
-The code in this repository can be used to analyze the collective motion of stationary crowds. The study of these crowds is done by binning the system and counting the number of individuals inside each bin at a given instant in time. In particular, the input to the code in this repository is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. With this matrix, the code returns two arrays that caracterize the density-distributions of the crowd among the bins. First, it returns f(n) a vector that character
+The code in this repository can be used to analyze the collective motion of stationary crowds. The study of these crowds is done by binning the system and counting the number of individuals inside each bin at a given instant in time. In particular, the input to the code in this repository is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. With this matrix, the code returns two arrays that caracterize the density-distributions of the crowd among the bins. First, the code returns f(N) a vector that characterizes inter-agent interactions within a crowd as a function of the packing within a bin. And second, the code returns $V_B$, a vector that characterizes agent interactions with their environment (takes lower values near more preferable locations). 
 
 Also, included in this repository is the code to make predictions of crowd density-distributions under new circumstances. By mixing and matching V's and f's from different experiments, one is able to reconstruct the density distribution of a crowd in an environment where V is known for a couple of individuals, but now, the number of individuals increases significantly to a known value.
 
@@ -25,53 +20,46 @@ Also, included in this repository is the code to make predictions of crowd densi
 
 - [Matlab_analysis](./Matlab_analysis): `Matlab` code.
 
-	-[Predictions](./Matlab_analysis/Predictions):ssf
+	-[Predictions](./Matlab_analysis/Predictions) 
 	
-	-[MLE_DFFT](./Matlab_analysis/MLE_DFFT)
+	-[MLE_DFFT](./Matlab_analysis/MLE_DFFT): Maximum Likelihood Estimation of both location-preference and inter-agent interaction parameters using the DFFT model
 	
-	-[MLE_Poiss](./Matlab_analysis/MLE_Poiss)
+	-[MLE_Poiss](./Matlab_analysis/MLE_Poiss): Maximum Likelihood Estimation of location-preference parameters using a Poisson model
 	
 - [Trial_data](./Trial_data): Test data
-
-
 
 
 # System Requirements
 
 ## Hardware Requirements
+The code was developed and tested using a computer with the following specifications:
 
-The `MGC` package requires only a standard computer with enough RAM to support the operations defined by a user. For minimal performance, this will be a computer with about 2 GB of RAM. For optimal performance, we recommend a computer with the following specs:
+Processor: 2,5 GHz Intel Core i5
+RAM: 8 GB 1867 MHz DDR3
 
-RAM: 16+ GB  
-CPU: 4+ cores, 3.3+ GHz/core
-
-The runtimes below are generated using a computer with the recommended specs (16 GB RAM, 4 cores@3.3 GHz) and internet of speed 25 Mbps.
+The times reported below are calculated with these specs.
 
 ## Software Requirements
 
 ### OS Requirements
 
-This package is supported for *Linux* operating systems. The package has been tested on the following systems:
+The package has been tested on the following systems:
 
+Mac OSX:  High Sierra Version 10.13.4 (17E202)
 Linux: Ubuntu 16.04  
-Mac OSX:  
-Windows:  
+Windows:  --
 
-Before setting up the `MGC` package, users should have `R` version 3.4.0 or higher, and several packages set up from CRAN.
+#### Other Requirements
 
-#### Installing R version 3.4.2 on Ubuntu 16.04
+Before prior to installation and implementation of the code in this repository, one should have one of the following versions of either MATLAB or GNU Octave installed. 
 
-the latest version of R can be installed by adding the latest repository to `apt`:
+MATLAB R2017b (9.3.0.713579), 64-bit (maci64) 
 
-```
-sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
-gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-gpg -a --export E084DAB9 | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install r-base r-base-dev
-```
+or,
 
-which should install in about 20 seconds.
+GNU Octave, version 4.2.1.
+
+The code was developed primarily using the former.
 
 #### Package dependencies
 

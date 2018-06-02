@@ -26,8 +26,6 @@ function [fmle,Vmle,CovMatmle,fmleError,VmleError]=extract_params_DFFT(str,plots
 %%which ammounts to performing a similarity transformation to the covriance matrix
 %%also we append to the asymptotic covariance the error and covariances of the parameter f(1) that was previously fixed but now has error. (if there was a gauge fix)
 
-
-
 counts=cell2mat(struct2cell(load(str)));
 tau=Corr(counts);
 counts=counts';
