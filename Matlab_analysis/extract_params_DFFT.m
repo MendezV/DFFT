@@ -36,7 +36,7 @@ counts=counts';
 %setting up root values for the gradient search
 alpharoot =  0.00010000;
 gauge=0;
-%gradient search 
+%gradient search with random seed
 [fmle,Vmle,CovMatmle,fmleError,VmleError]=MLE('random',alpharoot,counts,gauge,tau);
 
 %%

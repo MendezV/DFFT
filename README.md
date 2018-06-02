@@ -17,15 +17,17 @@
 - [Citation](#citation)
 # Overview
 
-The code in this repository can be used to analyze the collective motion of stationary crowds. In particular, input to the code is a csv file in which rows correspond to time frames and columns correspond to the number of individuals inside each bin (quadrats) o
+The code in this repository can be used to analyze the collective motion of stationary crowds. The study of these crowds is done by binning the system and counting the number of individuals inside each bin at a given instant in time. In particular, the input to the code in this repository is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. With this matrix, the code returns two arrays that caracterize the density-distributions of the crowd among the bins. First, it returns f(n) a vector that character
+
+Also, included in this repository is the code to make predictions of crowd density-distributions in new envionments. 
 
 # Repo Contents
 
-- [Matlab_analysis](./Matlab_analysis): `Matlab` package code.
+- [Matlab_analysis](./Matlab_analysis): `Matlab` code.
 	-[Predictions](./Matlab_analysis/Predictions):ssf
 	-[MLE_DFFT](./Matlab_analysis/MLE_DFFT)
 	-[MLE_Poiss](./Matlab_analysis/MLE_Poiss)
-- [Trial_data](./Trial_data): package documentation.
+- [Trial_data](./Trial_data): Test data
 
 
 
@@ -92,7 +94,7 @@ latex2exp: 0.4.0
 MASS: 7.3
 ```
 
-If you are having an issue that you believe to be tied to software versioning issues, please drop us an [Issue](https://github.com/neurodata/mgc/issues). 
+
 
 # Installation Guide
 
@@ -162,51 +164,6 @@ with the following statistic:
 
 viewing the corr map above we see that the relationship betweel Sepal and Petal Length is somewhat linear.
 
-### Help
-
-Instructions for help using the `MGC` statistic can be invoked from the `R` terminal window:
-
-```
-help("mgc.sample")
-```
-
-which produces the `man` page:
-
-```
-MGC Sample
-
-Description
-
-The main function that computes the MGC measure between two datasets: It first computes all local correlations, then use the maximal statistic among all local correlations based on thresholding.
-
-Usage
-
-mgc.sample(A, B, option = "mgc")
-Arguments
-
-+ A	is interpreted as:
-a [nxn] distance matrix, A is a square matrix with zeros on diagonal
-a [nxd] data matrix, Otherwise
-+ B	is interpreted as:
-a [nxn] distance matrix, B is a square matrix with zeros on diagonal
-a [nxd] data matrix, Otherwise
-+ option='mgc'	is a string that specifies which global correlation to build up-on.
-+ 'mgc' use the MGC global correlation.
-+ 'dcor' use the dcor global correlation.
-+ 'mantel' use the mantel global correlation.
-+ 'rank' use the rank global correlation.
-
-and Returns:
-+ statMGC is the sample MGC statistic within [-1,1];
-
-+ localCorr consists of all local correlations by double matrix index;
-
-+ optimalScale the estimated optimal scale in matrix single index.
-
-Author(s)
-
-C. Shen
-```
 
 # Pseudocode
 
