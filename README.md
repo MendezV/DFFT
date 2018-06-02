@@ -161,7 +161,7 @@ https://github.com/MendezV/DFFT
 ```
 in ```repository path```.
 
-In any case, the only requirement to use the code is adding the directories in this repository to your local path whether you are working on MATLAB or Octave.
+In any case, the only requirement to use the code is adding the directories in this repository to your local path whether you are working on MATLAB or Octave. The time it takes to download the required files is tipically less than one second. 
 
 # Demo
 
