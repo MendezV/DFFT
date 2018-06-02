@@ -175,7 +175,7 @@ The `DFFT_MLE` demo can be run as follows:
 ```
 The data in  ```occ_f.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a crowd of 135 flies inside a circular chamber with 50 bins. The maximum occupation observed in this data is 7 flies in a bin. The total number of frames was 533.  As such, occ_f contains a 533x50 matrix. 
 
-The output to the workspace should be :
+The output to MATLAB workspace should be :
 
 -```fmle```: a vector with 8 entries that corresponds to the frustration that came out of the MLE including the gauge fixed values (if gauge!=0 the average potential is set to zero and the gauge is adjusted for f(1) with appropiate error propagation)
 
@@ -219,13 +219,42 @@ tells the number of iterations until the non-linear conjugate gradients algorith
 The `Poiss_MLE` demo can be run as follows:
 
 ```
-require(mgc)
-set.seed(12345)
-mgc.sample(mgc::test_xunif, mgc::test_ylin)$statMGC  # test with a linear relationship between x and y
+[VPoiss,CovMatPoiss,VPoissError]=extract_params_Poiss('DFFT/Trial_Data/occ_V.mat','True');
 ```
+The data in  ```occ_V.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a single flies inside a square chamber with 49 bins. The total number of frames was 6384.  As such, occ_f contains a 6384x49 matrix. 
 
-the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding 
+The output to MATLAB workspace should be :
 
+-```VPoiss```:  a  vector with 49 entries  that corresponds to the vexation that came out of the MLE estimation for the vexation-only model. 
+
+-```VPoissError```: a  vector with 49 entries that corresponds to the diagonal of the covariance matrix, corresponding to the variances for each of the vexation parameters, in the vexation-only model. 
+
+-```CovMatPoiss```: a (Nbins) square, positive, symmetric, invertible matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators for the naive model. 
+
+Additionally, the following plot of VPoiss with its respective error bars shoud appear
+
+![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO.png)
+
+This operation typically lasts less than one second. Moreover, the following output should appear in the command line:
+```
+Correlation time (in frames)...
+
+tau =
+
+6.5316
+```
+Which tells time needed to decorrelate the system in units of frames. Also, 
+```
+Elapsed time is 0.452752 seconds.
+```
+Tells the time in which  the non-linear conjugate gradients algorithm converged. This time changes with each call of the function because random initial conditions for the search where set by default. However, this is time is generally lower than a second for the data in this repository. Note that this time depends monotonically on the ammount of bins in the system. Finally, the line:
+
+```
+counter =
+
+1920
+```
+tells the number of iterations until the non-linear conjugate gradients algorithm converges. For the data in this repository, the number is typically around 2000-3000 depending on the random initial condition. 
 
 ## Predictions Demo
 
