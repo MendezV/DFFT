@@ -212,7 +212,7 @@ counter =
 
 1920
 ```
-tell the number of iterations until the non-linear conjugate gradients algorithm converges. For the data in this repository, the number is typically around 2000-3000 depending on the random initial condition. 
+tells the number of iterations until the non-linear conjugate gradients algorithm converges. For the data in this repository, the number is typically around 2000-3000 depending on the random initial condition. 
  
 ## Poiss_MLE Demo
 
