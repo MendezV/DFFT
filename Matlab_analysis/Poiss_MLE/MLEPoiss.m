@@ -14,7 +14,7 @@ function [VPoiss,CovMatPoiss,VPoissError]=MLEPoiss(root,alpharoot,counts,tau)
 
 %%finds the minimum of g(V)=-logP(V|data) by the method of preconditioned conjugate
 %%gradients the argument of this function at the minimum gives the maximum
-%%likelihood estimates for the parameters in the naive model. 
+%%likelihood estimates for the parameters in the Poisson model. 
 
 %%OUT
 %%-VPoiss: a Nbins(number of bins in the system) sized vector that corresponds
