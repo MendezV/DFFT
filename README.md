@@ -229,7 +229,7 @@ The output to MATLAB workspace should be :
 
 -```VPoissError```: a  vector with 49 entries that corresponds to the diagonal of the covariance matrix, corresponding to the variances for each of the vexation parameters, in the vexation-only model. 
 
--```CovMatPoiss```: a (Nbins) square, positive, symmetric, invertible matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators for the naive model. 
+-```CovMatPoiss```: a (49x49) square, positive, symmetric, invertible matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators for the naive model. 
 
 Additionally, the following plot of VPoiss with its respective error bars shoud appear
 
@@ -269,15 +269,15 @@ The output to MATLAB workspace should be :
 
 -```fmle```: a vector with 8 entries that corresponds to the frustration that came out of the MLE including the gauge fixed values (if gauge!=0 the average potential is set to zero and the gauge is adjusted for f(1) with appropiate error propagation)
 
--```Vmle```: a  vector with 50 entries that corresponds to the vexation that came out of the MLE (if gauge!=0 the average potential is set to zero)
+-```Vmle```: a  vector with 49 entries that corresponds to the vexation that came out of the MLE (if gauge!=0 the average potential is set to zero)
 
 -```fmleError```: a vector with 8 entries that corresponds to the diagonal of the covariance matrix, that ammounts to the variances for each of the parameters in the f-f sector of the covariance matrix, with zeros for the gauge fixed values
 
--```VmleError```: a  vector with 50 entries that corresponds to the diagonal of the covariance matrix, that ammounts to the variances for each of the parameters in the V-V sector of the covariance matrix
+-```VmleError```: a  vector with 49 entries that corresponds to the diagonal of the covariance matrix, that ammounts to the variances for each of the parameters in the V-V sector of the covariance matrix
 
--```CovMatmle ```(if gauge=0): a 56x56 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators. (if there was no gauge fix)
+-```CovMatmle ```(if gauge=0): a 55x55 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators. (if there was no gauge fix)
 
--```CovMatmle``` (if gauge=1): a 57x57 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators after performing the gauge transformation which ammounts to performing a similarity transformation to the covriance matrix also we append to the asymptotic covariance the error and covariances of the parameter f(1) that was previously fixed but now has error. (if there was a gauge fix)
+-```CovMatmle``` (if gauge=1): a 56x56 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators after performing the gauge transformation which ammounts to performing a similarity transformation to the covriance matrix also we append to the asymptotic covariance the error and covariances of the parameter f(1) that was previously fixed but now has error. (if there was a gauge fix)
 
 the ```gauge``` parameter is set within the ```extract_params_DFFT.mat``` script, and the default setting is ```gauge=0```.  Additionally, the following plot of fmle and Vmle with their respective error bars shoud appear
 
@@ -308,7 +308,9 @@ tells the number of iterations until the non-linear conjugate gradients algorith
 Now that the variables are set, a simple test consists of predicting the average density in each bin for the same ```occ_exp.mat``` data.  This can be done by typing:
 
 ```
-[predictedAv, errorbars, muDFT]=predav(fmle,VPoiss,CovMatmle,CovMatmle,150,'True',0);
+Nflies=135
+gauge=0
+[predictedAv, errorbars, muDFT]=predav(fmle,Vmle,CovMatmle,CovMatmle,Nflies,'True',gauge);
 ```
 The output to MATLAB workspace should be :
 
@@ -318,5 +320,12 @@ The output to MATLAB workspace should be :
 
 -```muDFT```: Chemical potential that fixes the average total number of flies in the system, for the DFFT model. 
 
+To visualize the average density-distribution of flies within the square chamber one can run the following line 
+```
+heatmap(reshape(predictedAv,[7,7]));
+```
+which should output the following plot:
+
+![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO4.png)
 
 
