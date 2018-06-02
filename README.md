@@ -12,7 +12,7 @@
 
 # Overview
 
-The code in this repository can be used to analyze the collective motion of stationary crowds. The study of these crowds is done by binning the system and counting the number of individuals inside each bin at a given instant in time. In particular, the input to the code in this repository is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. With this matrix, the code returns two arrays that caracterize the density-distributions of the crowd among the bins. First, the code returns f(N) a vector that characterizes inter-agent interactions within a crowd as a function of the packing within a bin. And second, the code returns $V_B$, a vector that characterizes agent interactions with their environment (takes lower values near more preferable locations). 
+The code in this repository can be used to analyze the collective motion of stationary crowds. The study of these crowds is done by binning the system and counting the number of individuals inside each bin at a given instant in time. In particular, the input to the code in this repository is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. With this matrix, the code returns two arrays that caracterize the density-distributions of the crowd among the bins. First, the code returns f(N) (frustration) a vector that characterizes inter-agent interactions within a crowd as a function of the packing within a bin. And second, the code returns $V_B$ (Vexation ), a vector that characterizes agent interactions with their environment (takes lower values near more preferable locations). 
 
 Also, included in this repository is the code to make predictions of crowd density-distributions under new circumstances. By mixing and matching V's and f's from different experiments, one is able to reconstruct the density distribution of a crowd in an environment where V is known for a couple of individuals, but now, the number of individuals increases significantly to a known value.
 
@@ -20,7 +20,7 @@ Also, included in this repository is the code to make predictions of crowd densi
 
 - [Matlab_analysis](./Matlab_analysis): `Matlab` code.
 
-	-[Predictions](./Matlab_analysis/Predictions) 
+	-[Predictions](./Matlab_analysis/Predictions): Prediction of density-distribution by mixing and matching Vexations and frustrations. Uses binary search to determine the chemical potential of the system to fix the number of agents.
 	
 	-[MLE_DFFT](./Matlab_analysis/MLE_DFFT): Maximum Likelihood Estimation of both location-preference and inter-agent interaction parameters using the DFFT model
 	
@@ -53,13 +53,13 @@ Windows:  --
 
 Before prior to installation and implementation of the code in this repository, one should have one of the following versions of either MATLAB or GNU Octave installed. 
 
-MATLAB R2017b (9.3.0.713579), 64-bit (maci64) 
+-MATLAB R2017b (9.3.0.713579), 64-bit (maci64) 
 
 or,
 
-GNU Octave, version 4.2.1.
+-GNU Octave, version 4.2.1.
 
-The code was developed primarily using the former.
+Our code was developed primarily using the former.
 
 #### Package dependencies
 
