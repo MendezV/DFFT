@@ -263,7 +263,7 @@ To test the predictions demo, first run the DFFT_MLE demo with
 ```
 [fmle,Vmle,CovMatmle,fmleError,VmleError]=extract_params_DFFT('DFFT/Trial_Data/occ_exp.mat','True');
 ```
-The data in  ```occ_exp.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a single flies inside a square chamber with 49 bins. The total number of frames was 15960.  As such, ```occ_exp``` contains a 15960x49 matrix. 
+The data in  ```occ_exp.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a crowd of 135 flies inside a square chamber with 49 bins. The total number of frames was 15960.  As such, ```occ_exp``` contains a 15960x49 matrix. 
 
 The output to MATLAB workspace should be :
 
@@ -304,4 +304,19 @@ counter =
 687
 ```
 tells the number of iterations until the non-linear conjugate gradients algorithm converges. For the data in this repository, the number is typically around 500-1000 depending on the random initial condition. 
+
+Now that the variables are set, a simple test consists of predicting the average density in each bin for the same ```occ_exp.mat``` data.  This can be done by typing:
+
+```
+[predictedAv, errorbars, muDFT]=predav(fmle,VPoiss,CovMatmle,CovMatmle,150,'True',0);
+```
+The output to MATLAB workspace should be :
+
+-```predictedAv``` a vector of size Nbins (the number of bins in the system) in which each entry is the average number of flies as predicted from the DFFT model implemented with a binary search that determines the chemical potential mu that fixes the total number of flies (vector is sorted in the same order as the occupations matrix first dimension)
+
+-```errorbars```: a vector of size Nbins (the number of bins in the system) in which each entry is the one sigma error on the average number of flies as predicted from the DFFT model for each bin(vector is sorted in the same order as the occupations matrix first dimension)
+
+-```muDFT```: Chemical potential that fixes the average total number of flies in the system, for the DFFT model. 
+
+
 

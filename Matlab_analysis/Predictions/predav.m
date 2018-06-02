@@ -29,7 +29,7 @@ function [predictedAv, errorbars, muDFT]=predav(f,V,CovMatF,CovMatV,Nflies,samee
 %%-errorbars a vector of size Nbins (the number of bins in the system) in
 %%which each entry is the one sigma error on the average number of flies as predicted from the DFT
 %%model for each bin(vector is sorted in the same order as the occupations matrix first dimension)
-%%-muDFT:Chemical otential that fixes the average total umber of flies in
+%%-muDFT:Chemical potential that fixes the average total umber of flies in
 %%the system, for the DFT model
 MaxPop=size(f,1)-1; %maximum observed packing in the system where F was extracted (must be greater or equal to the maximum observed packing in the data we are about to predict)
 Nbins=size(V,1); %total number of bins in the data we are about to predict
