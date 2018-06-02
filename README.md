@@ -164,20 +164,43 @@ in ```repository path```.
 In any case, the only requirement to use the code is adding the directories in this repository to your local path whether you are working on MATLAB or Octave. The time it takes to download the required files is tipically less than one second. 
 
 
-# Demo
+# Instructions for Use and Demo
 
 ## DFFT_MLE Demo
 
 The `DFFT_MLE` demo can be run as follows:
 
 ```
-require(mgc)
-set.seed(12345)
-mgc.sample(mgc::test_xunif, mgc::test_ylin)$statMGC  # test with a linear relationship between x and y
+[fmle,Vmle,CovMatmle,fmleError,VmleError]=extract_params_DFFT('DFFT/Trial_Data/occ_f.mat','True')
 ```
+The data in  ```occ_f.mat``` is a MAT-file containing a structure array with a single field. This field is a matrix in which rows correspond to time frames and columns correspond to each bin (labeled by an integer) . As such, the (i,j) entry of this matrix corresponds to the number of individuals inside bin j on frame i. These entries are measured for a crowd of 135 flies inside a circular chamber with 50 bins. The maximum occupation observed in this data is 7 flies in a bin. The total number of frames was 533.  As such, occ_f contains a 533x50 matrix. 
 
-the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding 
+The output to the workspace should be :
 
+-fmle: a vector with 8 entries that corresponds to the frustration that came out of the MLE including the gauge fixed values (if gauge!=0 the average potential is set to zero and the gauge is adjusted for f(1) with appropiate error propagation)
+-Vmle: a  vector with 50 entries that corresponds to the vexation that came out of the MLE (if gauge!=0 the average potential is set to zero)
+-fmleError: a vector with 8 entries that corresponds to the diagonal of the covariance matrix, that ammounts to the variances for each of the parameters in the f-f sector of the covariance matrix, with zeros for the gauge fixed values
+-VmleError: a  vector with 50 entries that corresponds to the diagonal of the covariance matrix, that ammounts to the variances for each of the parameters in the V-V sector of the covariance matrix
+-CovMatmle(if gauge=0): a 56x56 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators. (if there was no gauge fix)
+-CovMatmle(if gauge=1): a 57x57 square, positive, symmetric, invertible Matrix that corresponds to the covariance matrix of the asymptotic gaussian distribution for the ML estimators after performing the gauge transformation which ammounts to performing a similarity transformation to the covriance matrix also we append to the asymptotic covariance the error and covariances of the parameter f(1) that was previously fixed but now has error. (if there was a gauge fix)
+
+the gauge parameter is set within the extract_params_DFFT script, and the default setting is gauge=0.  Additionally, the following plot of fmle and Vmle with their respective errors shoud appear
+
+![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO.png)
+ 
+ This operation typically lasts less than one second. Moreover, the following output should appear in the command line:
+ ```
+ Correlation time (in frames)...
+ 
+ tau =
+ 
+ 6.5316
+```
+Which tells time needed to decorrelate the system in units of frames. Also, 
+```
+Elapsed time is 0.452752 seconds.
+```
+ 
 ## Poiss_MLE Demo
 
 The `Poiss_MLE` demo can be run as follows:
@@ -203,22 +226,6 @@ mgc.sample(mgc::test_xunif, mgc::test_ylin)$statMGC  # test with a linear relati
 
 the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding 
 
-
-# Instructions for Use
-
-
-In the below tutorial, we show the result of `MGC` to determine the relationship between the first (sepal length) and third (petal length) dimensions of the `iris` dataset, which should run in about 2 seconds:
-
-```
-library(mgc)
-set.seed(12345)
-res <- mgc.sample(iris[,1], iris[,3])
-mgc.plot.plot_matrix(res$localCorr, title="MGC Corr Map, Sepal Length and Petal Length",
-xlab="Sepal Length Neighbors", ylab="Petal Length Neighbors", legend.name = "statMGC")
-print(res$statMGC)
-```
-
-![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO.png)
 
 with the following statistic:
 
