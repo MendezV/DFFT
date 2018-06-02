@@ -52,7 +52,7 @@ Windows:  --
 
 #### Other Requirements
 
-Before prior to installation and implementation of the code in this repository, one should have one of the following versions of either MATLAB or GNU Octave installed. 
+Prior to installation and implementation of the code in this repository, one should have one of the following versions of either MATLAB or GNU Octave installed. 
 
 -MATLAB R2017b (9.3.0.713579), 64-bit together with Java 1.8.0_121-b13 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
 
