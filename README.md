@@ -163,11 +163,12 @@ in ```repository path```.
 
 In any case, the only requirement to use the code is adding the directories in this repository to your local path whether you are working on MATLAB or Octave. The time it takes to download the required files is tipically less than one second. 
 
+
 # Demo
 
-## MGC Demo
+## DFFT_MLE Demo
 
-The `mgc` demo can be run as follows:
+The `DFFT_MLE` demo can be run as follows:
 
 ```
 require(mgc)
@@ -175,27 +176,36 @@ set.seed(12345)
 mgc.sample(mgc::test_xunif, mgc::test_ylin)$statMGC  # test with a linear relationship between x and y
 ```
 
-the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding normally distributed error with variance 0.2 (indicating a linear relationship).
+the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding 
 
-and is expected  to produce the following result exactly approximately *instantaneously*:
+## Poiss_MLE Demo
 
-```
-0.891153
-```
-
-a more interactive demo is provided in the package vignette:
+The `Poiss_MLE` demo can be run as follows:
 
 ```
-library(mgc)
-vignette("MGC", package="mgc")
+require(mgc)
+set.seed(12345)
+mgc.sample(mgc::test_xunif, mgc::test_ylin)$statMGC  # test with a linear relationship between x and y
 ```
 
+the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding 
 
+
+## Predictions Demo
+
+The `Predictions` demo can be run as follows:
+
+```
+require(mgc)
+set.seed(12345)
+mgc.sample(mgc::test_xunif, mgc::test_ylin)$statMGC  # test with a linear relationship between x and y
+```
+
+the x data provided is by sampling 100 times from a uniform distribution on the interval [-1, 1], and the y data is formed by adding 
 
 
 # Instructions for Use
 
-## MGC Use
 
 In the below tutorial, we show the result of `MGC` to determine the relationship between the first (sepal length) and third (petal length) dimensions of the `iris` dataset, which should run in about 2 seconds:
 

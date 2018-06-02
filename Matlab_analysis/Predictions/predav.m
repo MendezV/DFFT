@@ -10,7 +10,7 @@ function [predictedAv, errorbars, muDFT]=predav(f,V,CovMatF,CovMatV,Nflies,samee
 %%getCovMatF: it has less dimensions than expected from the number of parameters in the model due to the lack of error
 %%in the gauge fixed parameters.
 %%-Nflies: Number of flies in the sistem that we are trying to predict
-%%-sameexperiment: int, if it is 1 we take into account correlations between parameters V and F otherwise they will not be correlated 
+%%-sameexperiment: if 'True' we take into account correlations between parameters V and F otherwise they will not be correlated 
 %%-gauge numerical value, if 0 no gauge transformation is applied to the
 %%parameters and f(0)=f(1)=0. else the gauge is set so that the average
 %%potential is zero and f(1) corresponds to the sum of the previous values
@@ -147,7 +147,7 @@ end
 %%now we calculate the error bars with standard propagation of errors to
 %%first order taking into account correlations 
 
-if sameexperiment==1 %%condition if both V and F come from the same experiment
+if sameexperiment=='True' %%condition if both V and F come from the same experiment
     errorbars=sqrt((partialV.^2).*(vexerror.^2)+ferrorsq+2*sum(partialFpartialV.*corrFV,2));
 else  %%condition if both V and F come from different experiments
     errorbars=sqrt((partialV.^2).*(vexerror.^2)+ferrorsq);
