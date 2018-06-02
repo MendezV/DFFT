@@ -169,10 +169,4 @@ with the following statistic:
 viewing the corr map above we see that the relationship betweel Sepal and Petal Length is somewhat linear.
 
 
-# Pseudocode
 
-Pseudocode for the methods employed in the `mgc` package can be found on the [arXiv - MGC](https://arxiv.org/abs/1609.05148) in Appendix C (starting on page 30).
-
-# Citation
-
-For citing code or the paper, please use the citations found in [citation.bib](./citation.bib).
