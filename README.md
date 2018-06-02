@@ -151,17 +151,15 @@ Note that many of these toolboxes were are not needed for the use of our code. N
 
 # Installation Guide
 
-From an `R` session, type:
-
+You can fork this repository to your matlab session using 
 ```
-require(devtools)
-install_github('neurodata/mgc', build_vignettes=TRUE)  # install mgc with the vignettes
-require(mgc)  # source the package now that it is set up
-vignette("MGC", package="mgc")  # view one of the basic vignettes
+Source Control -> Manage Files... 
 ```
-
-The package should take approximately 20 seconds to install with vignettes on a recommended computer. 
-
+And typing 
+```
+https://github.com/MendezV/DFFT
+```
+in ```repository path```.
 # Demo
 
 ## MGC Demo
