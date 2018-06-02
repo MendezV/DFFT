@@ -146,7 +146,7 @@ xlab="Sepal Length Neighbors", ylab="Petal Length Neighbors", legend.name = "sta
 print(res$statMGC)
 ```
 
-![image](https://user-images.githubusercontent.com/8883547/32355967-7de64590-c008-11e7-9c3b-e24470fdbdaa.png)
+![image](https://github.com/MendezV/MLE-for-DFT-master/blob/master/Other/Figures/DEMO.png)
 
 with the following statistic:
 
