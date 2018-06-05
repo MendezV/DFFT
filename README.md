@@ -47,14 +47,14 @@ The package has been tested on the following systems:
 
 Mac OSX:  High Sierra Version 10.13.4 Build: 17E202 
 
-Linux: Ubuntu 16.04  
+Linux: Ubuntu 16.04 LTS  
 Windows:  --
 
 #### Other Requirements
 
 Prior to installation and implementation of the code in this repository, one should have one of the following versions of either MATLAB or GNU Octave installed. 
 
--MATLAB R2017b (9.3.0.713579), 64-bit together with Java 1.8.0_121-b13 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+-MATLAB Version: 9.0.0.341360 (R2016a), 64-bit together with Java 1.7.0_60-b19 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
 
 or,
 
@@ -66,86 +66,25 @@ Our code was developed primarily using the former.
 
 The complete list of toolboxes and versions that where installed at the time of developing the code is:
 ```
-MATLAB                                                Version 9.3         (R2017b)
-Simulink                                              Version 9.0         (R2017b)
-Aerospace Blockset                                    Version 3.20        (R2017b)
-Aerospace Toolbox                                     Version 2.20        (R2017b)
-Antenna Toolbox                                       Version 3.0         (R2017b)
-Audio System Toolbox                                  Version 1.3         (R2017b)
-Automated Driving System Toolbox                      Version 1.1         (R2017b)
-Bioinformatics Toolbox                                Version 4.9         (R2017b)
-Communications System Toolbox                         Version 6.5         (R2017b)
-Computer Vision System Toolbox                        Version 8.0         (R2017b)
-Control System Toolbox                                Version 10.3        (R2017b)
-Curve Fitting Toolbox                                 Version 3.5.6       (R2017b)
-DO Qualification Kit                                  Version 3.4         (R2017b)
-DSP System Toolbox                                    Version 9.5         (R2017b)
-Database Toolbox                                      Version 8.0         (R2017b)
-Datafeed Toolbox                                      Version 5.6         (R2017b)
-Econometrics Toolbox                                  Version 4.1         (R2017b)
-Embedded Coder                                        Version 6.13        (R2017b)
-Filter Design HDL Coder                               Version 3.1.2       (R2017b)
-Financial Instruments Toolbox                         Version 2.6         (R2017b)
-Financial Toolbox                                     Version 5.10        (R2017b)
-Fixed-Point Designer                                  Version 6.0         (R2017b)
-Fuzzy Logic Toolbox                                   Version 2.3         (R2017b)
-Global Optimization Toolbox                           Version 3.4.3       (R2017b)
-HDL Coder                                             Version 3.11        (R2017b)
-IEC Certification Kit                                 Version 3.10        (R2017b)
-Image Acquisition Toolbox                             Version 5.3         (R2017b)
-Image Processing Toolbox                              Version 10.1        (R2017b)
-Instrument Control Toolbox                            Version 3.12        (R2017b)
-LTE HDL Toolbox                                       Version 1.0         (R2017b)
-LTE System Toolbox                                    Version 2.5         (R2017b)
-MATLAB Coder                                          Version 3.4         (R2017b)
-MATLAB Compiler                                       Version 6.5         (R2017b)
-MATLAB Compiler SDK                                   Version 6.4         (R2017b)
-MATLAB Distributed Computing Server                   Version 6.11        (R2017b)
-MATLAB Report Generator                               Version 5.3         (R2017b)
-Mapping Toolbox                                       Version 4.5.1       (R2017b)
-Model Predictive Control Toolbox                      Version 6.0         (R2017b)
-Neural Network Toolbox                                Version 11.0        (R2017b)
-Optimization Toolbox                                  Version 8.0         (R2017b)
-Parallel Computing Toolbox                            Version 6.11        (R2017b)
-Partial Differential Equation Toolbox                 Version 2.5         (R2017b)
-Phased Array System Toolbox                           Version 3.5         (R2017b)
-Polyspace Bug Finder                                  Version 2.4         (R2017b)
-Polyspace Code Prover                                 Version 9.8         (R2017b)
-Powertrain Blockset                                   Version 1.2         (R2017b)
-RF Blockset                                           Version 6.1         (R2017b)
-RF Toolbox                                            Version 3.3         (R2017b)
-Risk Management Toolbox                               Version 1.2         (R2017b)
-Robotics System Toolbox                               Version 1.5         (R2017b)
-Robust Control Toolbox                                Version 6.4         (R2017b)
-Signal Processing Toolbox                             Version 7.5         (R2017b)
-SimBiology                                            Version 5.7         (R2017b)
-SimEvents                                             Version 5.3         (R2017b)
-Simscape                                              Version 4.3         (R2017b)
-Simscape Driveline                                    Version 2.13        (R2017b)
-Simscape Electronics                                  Version 2.12        (R2017b)
-Simscape Fluids                                       Version 2.3         (R2017b)
-Simscape Multibody                                    Version 5.1         (R2017b)
-Simscape Power Systems                                Version 6.8         (R2017b)
-Simulink 3D Animation                                 Version 7.8         (R2017b)
-Simulink Check                                        Version 4.0         (R2017b)
-Simulink Coder                                        Version 8.13        (R2017b)
-Simulink Control Design                               Version 5.0         (R2017b)
-Simulink Coverage                                     Version 4.0         (R2017b)
-Simulink Design Optimization                          Version 3.3         (R2017b)
-Simulink Design Verifier                              Version 3.4         (R2017b)
-Simulink Desktop Real-Time                            Version 5.5         (R2017b)
-Simulink Report Generator                             Version 5.3         (R2017b)
-Simulink Requirements                                 Version 1.0         (R2017b)
-Simulink Test                                         Version 2.3         (R2017b)
-Stateflow                                             Version 9.0         (R2017b)
-Statistics and Machine Learning Toolbox               Version 11.2        (R2017b)
-Symbolic Math Toolbox                                 Version 8.0         (R2017b)
-System Identification Toolbox                         Version 9.7         (R2017b)
-Text Analytics Toolbox                                Version 1.0         (R2017b)
-Tracking and Sensor Fusion Toolbox                    Version 1.0         (R2017b)
-Trading Toolbox                                       Version 3.3         (R2017b)
-WLAN System Toolbox                                   Version 1.4         (R2017b)
-Wavelet Toolbox                                       Version 4.19        (R2017b)
+MATLAB                                                Version 9.0         (R2016a)
+Simulink                                              Version 8.7         (R2016a)
+Bioinformatics Toolbox                                Version 4.6         (R2016a)
+Control System Toolbox                                Version 10.0        (R2016a)
+DSP System Toolbox                                    Version 9.2         (R2016a)
+Econometrics Toolbox                                  Version 3.4         (R2016a)
+Financial Instruments Toolbox                         Version 2.3         (R2016a)
+Financial Toolbox                                     Version 5.7         (R2016a)
+Fixed-Point Designer                                  Version 5.2         (R2016a)
+Global Optimization Toolbox                           Version 3.4         (R2016a)
+Image Processing Toolbox                              Version 9.4         (R2016a)
+Neural Network Toolbox                                Version 9.0         (R2016a)
+Optimization Toolbox                                  Version 7.4         (R2016a)
+Partial Differential Equation Toolbox                 Version 2.2         (R2016a)
+Signal Processing Toolbox                             Version 7.2         (R2016a)
+Simulink Control Design                               Version 4.3         (R2016a)
+Statistics and Machine Learning Toolbox               Version 10.2        (R2016a)
+Symbolic Math Toolbox                                 Version 7.0         (R2016a)
+Wavelet Toolbox                                       Version 4.16        (R2016a)
 ```
 Note that many of these toolboxes were are not needed for the use of our code. Nevertheles, we include this list for completeness. Also, note that there is no need for any non-standard hardware to use the code in this repository.
 
@@ -161,7 +100,7 @@ https://github.com/MendezV/DFFT
 ```
 in ```repository path```.
 
-In any case, the only requirement to use the code is adding the directories in this repository to your local path whether you are working on MATLAB or Octave. The time it takes to download the required files is tipically less than one second. 
+In any case, the only requirement to use the code is adding the directories in this repository to your local path whether you are working on MATLAB or Octave. The time it takes to download the required files is typically less than one second. 
 
 
 # Instructions for Use and Demo
