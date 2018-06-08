@@ -8,8 +8,8 @@
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
 - [Instructions for Use and Demo](#instructions-for-use-and-demo)
-    + [DFFT_MLE Demo](#DFFT_MLE_Demo)
-    + [Poiss_MLE Demo](#Poiss_MLE_Demo)
+    + [DFFT_MLE Demo](#DFFT_MLE-Demo)
+    + [Poiss_MLE Demo](#Poiss_MLE-Demo)
     + [Predictions Demo](#Predictions-Demo)
 - [License](./LICENSE)
 
