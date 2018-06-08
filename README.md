@@ -7,9 +7,9 @@
 - [Repo Contents](#repo-contents)
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
-- [Demo](#demo)
+- [Instructions for Use and Demo](#instructions-for-use-and-demo)
 - [License](#license)
-- [Instructions for Use](#instructions-for-use)
+
 
 # Overview
 
