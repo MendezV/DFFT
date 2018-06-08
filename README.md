@@ -8,6 +8,7 @@
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
 - [Demo](#demo)
+- [License](#license)
 - [Instructions for Use](#instructions-for-use)
 
 # Overview
