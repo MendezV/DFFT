@@ -1,5 +1,5 @@
 # Density-Funtional Fluctuation Theory MLE  (DFFT_MLE)
-
+[![DOI](https://zenodo.org/badge/135637007.svg)](https://zenodo.org/badge/latestdoi/135637007)
 
 ## Contents
 
