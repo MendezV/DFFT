@@ -31,6 +31,7 @@ Also, included in this repository is the code to make predictions of crowd densi
 	-[MLE_Poiss](./Matlab_analysis/MLE_Poiss): Maximum Likelihood Estimation of location-preference parameters using a Poisson model
 	
 - [Trial_data](./Trial_data): Test data
+- [Pseudocode](./Pseudocode): Pseudocode
 
 
 # System Requirements
