@@ -31,12 +31,13 @@ function alpha=linemin(params,conjugdir,alpharoot,  MaxPop,Nbins,Tframes, hist, 
 tau=0.7; %%control parameter should be between 0 and 1
 c1=0.0001; %%control parameter should be between 0 and 1
 %c2=0.1;  %%control parameter should be between 0 and 1
-m=conjugdir'*grad/sqrt(conjugdir'*conjugdir); %%local slope of the function of alpha  along the search direction
+p=conjugdir/sqrt(conjugdir'*conjugdir); %% normalized search direction
+m=sum(p.*grad); %%local slope of the function of alpha  along the normalized search direction
 t=-c1*m; %parameter that serves as lower bound in the Armijo-Goldstein condition 
 alpha=alpharoot; %%initializing alpha for the linesearch
 pastLogli=logli(params,  MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv);
 
-diff=pastLogli-logli(params+alpha*conjugdir,MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv); %%difference that will be minimized
+diff=pastLogli-logli(params+alpha*p,MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv); %%difference that will be minimized
 
 %%updating alpha until the Armijo-Goldstein and the sstrong Wolfe conditions are fulfilled, then we
 %%are satisfied with the value of alpha that will multiply the conjugate
@@ -44,7 +45,7 @@ diff=pastLogli-logli(params+alpha*conjugdir,MaxPop,Nbins,Tframes, hist, N, Nfac,
 
 while diff<alpha*t
 	alpha=alpha*tau;
-    diff=pastLogli-logli(params+alpha*conjugdir,MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv);
+    diff=pastLogli-logli(params+alpha*p,MaxPop,Nbins,Tframes, hist, N, Nfac, NexpAv);
     
 end
 
